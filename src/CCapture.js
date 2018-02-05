@@ -245,7 +245,9 @@ CCJPEGEncoder.prototype = Object.create( CCTarEncoder.prototype );
 CCJPEGEncoder.prototype.add = function( canvas ) {
 
 	canvas.toBlob( function( blob ) {
-		this.handleData(blob, this.count);
+		var count = this.count;
+		console.log("PASSING DATA FROM FRAME: ", count);
+		this.handleData(blob, count);
 		this.count++;
 		this.step();
 	}.bind( this ), this.type, this.quality )
