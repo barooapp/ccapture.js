@@ -244,11 +244,10 @@ CCJPEGEncoder.prototype = Object.create( CCTarEncoder.prototype );
 
 CCJPEGEncoder.prototype.add = function( canvas ) {
 
-	canvas.toBlob( function( blob ) {
-		this.handleData(blob, this.count);
-		this.count++;
-		this.step();
-	}.bind( this ), this.type, this.quality )
+	var dataURL = canvas.toDataURL( this.type, this.quality );
+	this.handleData(dataURL, this.count);
+	this.count++;
+	this.step();
 
 }
 
