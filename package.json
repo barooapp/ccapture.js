@@ -1,6 +1,6 @@
 {
   "name": "zcapture.js",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "A library to capture canvas-based animations at a fixed framerate",
   "main": "build/CCapture.all.min.js",
   "scripts": {
