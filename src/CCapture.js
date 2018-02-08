@@ -712,6 +712,24 @@ function CCapture( settings ) {
             _settings.syncVideo.pause();
             _settings.syncVideo.addEventListener('seeked', _callCallbacks);
         }
+        else {
+            function hookCurrentTime() { 
+                if( !this._hooked ) {
+                    this._hooked = true;
+                    this._hookedTime = this.currentTime || 0;
+                    this.pause();
+                    media.push( this );
+                }
+                return this._hookedTime + _settings.startTime;
+            };
+
+            // try {
+            //     Object.defineProperty( HTMLVideoElement.prototype, 'currentTime', { get: hookCurrentTime } )
+            //     Object.defineProperty( HTMLAudioElement.prototype, 'currentTime', { get: hookCurrentTime } )
+            // } catch (err) {
+            //     _log(err);
+            // }
+        }
 
 	}
 	
@@ -888,6 +906,10 @@ function CCapture( settings ) {
         if (_settings.syncVideo) {
             _settings.syncVideo.currentTime += step / 1000;
         }
+        else {
+            _callCallbacks();
+        }
+
 	}
 	
 	function _save( callback ) {
