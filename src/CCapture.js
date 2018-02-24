@@ -483,6 +483,7 @@ CCGIFEncoder.prototype.save = function( callback ) {
 
 }*/
 
+/*
 function CCGIFEncoder( settings ) {
 
 	CCFrameEncoder.call( this, settings );
@@ -540,7 +541,7 @@ CCGIFEncoder.prototype.add = function( canvas ) {
 	var readBuffer = new Uint8Array(canvas.width * canvas.height * 4);
 	var context = canvas.getContext( 'webgl' );
 	context.readPixels(0, 0, canvas.width, canvas.height, context.RGBA, context.UNSIGNED_BYTE, readBuffer);
-	this.encoder.addFrame( readBuffer, true );*/
+	this.encoder.addFrame( readBuffer, true );
 
 }
 
@@ -551,6 +552,7 @@ CCGIFEncoder.prototype.save = function( callback ) {
 	this.encoder.render();
 
 }
+*/
 
 function CCapture( settings ) {
 
@@ -601,7 +603,7 @@ function CCapture( settings ) {
 	_log( 'Step is set to ' + _settings.step + 'ms' );
 
     var _encoders = {
-		gif: CCGIFEncoder,
+		// gif: CCGIFEncoder,
 		webm: CCWebMEncoder,
 		ffmpegserver: CCFFMpegServerEncoder,
 		png: CCPNGEncoder,
